@@ -76,12 +76,22 @@ main { padding-top: 4.25rem; }
 
 /* Иллюстрация фона оставляет слева свободную зону для настоящего заголовка и CTA. */
 .hero-placeholder--generated {
-  background: url("./assets/hero-control-system.png") center / cover no-repeat, var(--ku-bg);
+  background: url("./assets/hero-control-system-v2.png") right center / cover no-repeat, var(--ku-bg);
 }
 .hero-placeholder--generated::before,
 .hero-placeholder--generated::after { content: none; }
 .hero-placeholder--generated .hero-placeholder__grid { display: none; }
 .hero-placeholder--generated .hero-placeholder__content { position: relative; z-index: 1; }
+.hero-system-logo {
+  position: absolute;
+  z-index: 1;
+  left: 72%;
+  top: 50%;
+  width: clamp(4.5rem, 8vw, 7.2rem);
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0.4rem 0.7rem rgba(92, 45, 19, 0.2));
+  pointer-events: none;
+}
 
 /* Оглавление */
 .content-wrap { max-width: var(--content-max); padding: var(--ku-space-xl) var(--ku-space-s) 5rem; }
@@ -216,7 +226,8 @@ a.btn-download:hover { background: var(--ku-brand-soft); border-color: var(--ku-
   .nav-brand { display: none; }
   .nav-inner { padding-inline: var(--ku-space-s); }
   .hero-placeholder { min-height: calc(88vh - 4rem); }
-  .hero-placeholder--generated { background-position: 20% center; }
+  .hero-placeholder--generated { background-position: 24% center; }
+  .hero-system-logo { left: 76%; top: 46%; width: 4.25rem; }
   .hero-placeholder__content { width: calc(100% - 2rem); padding: 5.5rem 0 7rem; }
   .hero-placeholder h1 { font-size: clamp(2.7rem, 13vw, 4.1rem); }
   .content-wrap { padding-inline: var(--ku-space-s); }

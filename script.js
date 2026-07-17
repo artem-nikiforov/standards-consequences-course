@@ -137,7 +137,7 @@ function initFadeIn() {
    ════════════════════════════════════════════════════════════════════════ */
 const PROGRESS_KEY = 'standards_consequences_course_progress';
 // Новая версия начинает маршрут заново: при первом открытии доступно только «Введение».
-const PROGRESS_VERSION = 9;
+const PROGRESS_VERSION = 10;
 const hubDone = [false, false, false];   // флаги пройденных подразделов (если есть)
 
 function collectState() {

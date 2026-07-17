@@ -107,7 +107,7 @@ main { padding-top: 4.25rem; }
 .lead-statement,
 .rule-quote,
 .section-heading,
-.after-feedback-note { max-width: 44rem; margin-left: 0; margin-right: 0; }
+.after-feedback-note { max-width: none; margin-left: 0; margin-right: 0; }
 .challenge-card { background: var(--ku-brand-soft); border: 1px solid var(--ku-border); border-radius: var(--ku-radius-l); box-shadow: var(--ku-shadow-s); }
 .challenge-card strong { color: var(--ku-brand-strong); }
 .section-heading { margin: var(--ku-space-xl) 0 var(--ku-space-m); }
@@ -202,13 +202,20 @@ main { padding-top: 4.25rem; }
 .fpr-card--result > span { background: var(--ku-success); color: var(--ku-brand-on); }
 
 /* Связка между вопросом-вызовом и маршрутом курса. */
-.challenge-bridge { max-width: 44rem; margin: 1.1rem 0 0; text-align: left; color: var(--ku-text-soft); font-size: 1.05rem; line-height: 1.55; }
+.challenge-bridge { max-width: none; margin: 1.1rem 0 0; text-align: left; color: var(--ku-text-soft); font-size: 1.05rem; line-height: 1.55; }
 .voice-card { background: var(--ku-brand-soft); color: var(--ku-text); border: 1px solid color-mix(in srgb, var(--ku-brand) 26%, var(--ku-border)); border-radius: var(--ku-radius-l); box-shadow: var(--ku-shadow-s); }
 .voice-card__icon { background: var(--ku-brand); color: var(--ku-brand-on); }
 .voice-card__copy p:last-child { color: var(--ku-text-soft); }
 .voice-card__icon--button.playing { background: var(--ku-brand-strong); color: var(--ku-brand-on); }
 .after-feedback-note { color: var(--ku-text-soft) !important; }
 .control-cycle { gap: var(--ku-gap-s); }
+.chain-infographics,
+.fpr-grid,
+.control-cycle {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 .cycle-card, .cycle-card--check { background: color-mix(in srgb, var(--ku-brand-soft) 62%, var(--ku-card)); border-color: color-mix(in srgb, var(--ku-brand) 40%, var(--ku-border)); border-top: 0.32rem solid var(--ku-brand); }
 .cycle-card--react { background: color-mix(in srgb, var(--ku-contrast) 14%, var(--ku-card)); border-color: color-mix(in srgb, var(--ku-contrast) 48%, var(--ku-border)); border-top: 0.32rem solid var(--ku-contrast); }
 .cycle-num, .cycle-card--check .cycle-num, .cycle-arrow { color: var(--ku-brand); }

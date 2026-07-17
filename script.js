@@ -137,7 +137,7 @@ function initFadeIn() {
    ════════════════════════════════════════════════════════════════════════ */
 const PROGRESS_KEY = 'standards_consequences_course_progress';
 // Новая версия начинает маршрут заново: при первом открытии доступно только «Введение».
-const PROGRESS_VERSION = 8;
+const PROGRESS_VERSION = 9;
 const hubDone = [false, false, false];   // флаги пройденных подразделов (если есть)
 
 function collectState() {
@@ -598,11 +598,20 @@ function resetZonePool(poolId, ...zoneIds) {
    локальный флаг, чтобы результат был виден и при локальном открытии. */
 function completeCourse() {
   try { localStorage.setItem(PROGRESS_KEY + '_completed', 'passed'); } catch (e) {}
-  if (window.SCORM && typeof SCORM.complete === 'function') {
-    SCORM.complete();
-  } else if (window.SCORM && typeof SCORM.set === 'function') {
-    SCORM.set('cmi.core.lesson_status', 'passed');
-    if (typeof SCORM.commit === 'function') SCORM.commit();
+  try {
+    if (window.SCORM && typeof SCORM.complete === 'function') {
+      SCORM.complete();
+    } else if (window.SCORM && typeof SCORM.set === 'function') {
+      SCORM.set('cmi.core.lesson_status', 'passed');
+      if (typeof SCORM.commit === 'function') SCORM.commit();
+    }
+  } catch (e) {}
+
+  const button = document.querySelector('#page-conclusion .finish-card .btn-next');
+  if (button) {
+    button.textContent = 'Курс завершён';
+    button.disabled = true;
+    button.setAttribute('aria-disabled', 'true');
   }
 }
 

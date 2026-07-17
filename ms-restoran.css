@@ -162,9 +162,14 @@ main { padding-top: 4.25rem; }
 .callout.red { border-left-color: var(--ku-danger); }
 
 /* Последствия и реальные цепочки */
-.consequence-pyramid { gap: 0.5rem; }
+.consequence-pyramid {
+  width: min(100%, 48rem);
+  margin-inline: auto;
+  align-items: center;
+  gap: 0.5rem;
+}
 .pyramid-detail { margin-left: 0; margin-right: 0; text-align: left; }
-.pyramid-level { background: var(--ku-brand); color: var(--ku-brand-on); border-radius: var(--ku-radius-m); clip-path: none; }
+.pyramid-level { background: var(--ku-brand); color: var(--ku-brand-on); border-radius: var(--ku-radius-m); clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%); }
 .pyramid-level.level-4 { background: var(--ku-contrast); box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--ku-contrast) 18%, transparent), var(--ku-shadow-s); }
 .pyramid-level.level-3 { background: color-mix(in srgb, var(--ku-contrast) 72%, var(--ku-brand)); }
 .pyramid-level.level-2 { background: var(--ku-brand); }

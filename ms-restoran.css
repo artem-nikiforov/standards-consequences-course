@@ -142,7 +142,7 @@ main { padding-top: 4.25rem; }
 .pyramid-level.level-3 { background: color-mix(in srgb, var(--ku-contrast) 72%, var(--ku-brand)); }
 .pyramid-level.level-2 { background: var(--ku-brand); }
 .pyramid-level.level-1 { background: var(--ku-brand-soft); color: var(--ku-text); border: 1px solid var(--ku-border); }
-.pyramid-detail { background: var(--ku-surface); color: var(--ku-text-soft); border: 1px solid var(--ku-border-soft); border-radius: var(--ku-radius-m); }
+.pyramid-detail { background: color-mix(in srgb, var(--ku-brand-soft) 74%, var(--ku-card)); color: var(--ku-text); border: 1px solid color-mix(in srgb, var(--ku-brand) 42%, var(--ku-border)); border-radius: var(--ku-radius-m); font-weight: 650; box-shadow: var(--ku-shadow-xs); }
 .chain-infographic { background: linear-gradient(145deg, var(--ku-card), color-mix(in srgb, var(--ku-brand-soft) 66%, var(--ku-card))); border: 1px solid color-mix(in srgb, var(--ku-brand) 46%, var(--ku-border)); border-top: 0.35rem solid var(--ku-brand); box-shadow: var(--ku-shadow-m); }
 .chain-infographic--risk, .chain-infographic--allergen { border-top-color: var(--ku-brand); }
 .chain-infographic--safety, .chain-infographic--quality { border-top-color: var(--ku-contrast); }
@@ -163,11 +163,14 @@ main { padding-top: 4.25rem; }
 .comparison-card--now .comparison-time { background: var(--ku-contrast); color: var(--ku-contrast-on); box-shadow: var(--ku-shadow-s); }
 .fpr-card, .after-feedback-card { background: color-mix(in srgb, var(--ku-brand-soft) 58%, var(--ku-card)); border: 1px solid color-mix(in srgb, var(--ku-brand) 35%, var(--ku-border)); border-top-color: var(--ku-brand); }
 .fpr-card > span, .after-feedback-tag { color: var(--ku-brand-strong); }
-.fpr-card > span { background: var(--ku-brand-soft); }
+.fpr-card > span { background: var(--ku-brand); color: var(--ku-brand-on); font-family: var(--ku-font-body); font-weight: 850; text-shadow: none; }
 .fpr-card--effect { background: color-mix(in srgb, var(--ku-contrast) 16%, var(--ku-card)); border-color: color-mix(in srgb, var(--ku-contrast) 52%, var(--ku-border)); }
-.fpr-card--effect > span { background: color-mix(in srgb, var(--ku-contrast) 16%, var(--ku-card)); color: var(--ku-contrast); }
+.fpr-card--effect > span { background: var(--ku-contrast); color: var(--ku-contrast-on); }
 .fpr-card--result { background: var(--ku-success-soft); border-color: var(--ku-success); }
-.fpr-card--result > span { background: var(--ku-success); }
+.fpr-card--result > span { background: var(--ku-success); color: var(--ku-brand-on); }
+
+/* Связка между вопросом-вызовом и маршрутом курса. */
+.challenge-bridge { max-width: 44rem; margin: 1.1rem auto 0; text-align: center; color: var(--ku-text-soft); font-size: 1.05rem; line-height: 1.55; }
 .voice-card { background: var(--ku-brand-soft); color: var(--ku-text); border: 1px solid color-mix(in srgb, var(--ku-brand) 26%, var(--ku-border)); border-radius: var(--ku-radius-l); box-shadow: var(--ku-shadow-s); }
 .voice-card__icon { background: var(--ku-brand); color: var(--ku-brand-on); }
 .voice-card__copy p:last-child { color: var(--ku-text-soft); }

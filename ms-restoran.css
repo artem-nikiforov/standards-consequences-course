@@ -74,6 +74,32 @@ main { padding-top: 4.25rem; }
 .photo-note-icon { color: var(--ku-brand); }
 .hero-bk-logo { background: var(--ku-brand-strong); }
 
+/* Заставка: текст остаётся в свободной левой части, домино — справа. */
+.hero-placeholder--cover {
+  background: url("./assets/hero-domino.jpg") center / cover no-repeat;
+}
+.hero-placeholder--cover::before { content: none; }
+.hero-placeholder--cover::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(250, 248, 253, 0.72) 0%, rgba(250, 248, 253, 0.42) 47%, transparent 70%);
+  pointer-events: none;
+}
+.hero-placeholder--cover .hero-placeholder__grid { display: none; }
+.hero-placeholder--cover .hero-placeholder__content {
+  position: relative;
+  z-index: 1;
+  width: min(42rem, calc(50vw - 4rem));
+  margin: 0 0 0 clamp(1.5rem, 7vw, 8rem);
+}
+.hero-placeholder--cover h1 {
+  max-width: 42rem;
+  font-size: clamp(3rem, 4.2vw, 4.5rem);
+}
+.hero-placeholder--cover .hero-lead { max-width: 32rem; }
+
 /* Оглавление */
 .content-wrap { max-width: var(--content-max); padding: var(--ku-space-xl) var(--ku-space-s) 5rem; }
 .home-content { max-width: 58rem; }
@@ -207,6 +233,12 @@ a.btn-download:hover { background: var(--ku-brand-soft); border-color: var(--ku-
   .nav-brand { display: none; }
   .nav-inner { padding-inline: var(--ku-space-s); }
   .hero-placeholder { min-height: calc(88vh - 4rem); }
+  .hero-placeholder--cover { background-position: 59% center; }
+  .hero-placeholder--cover::after { background: rgba(250, 248, 253, 0.6); }
+  .hero-placeholder--cover .hero-placeholder__content {
+    width: calc(100% - 2rem);
+    margin-inline: auto;
+  }
   .hero-placeholder__content { width: calc(100% - 2rem); padding: 5.5rem 0 7rem; }
   .hero-placeholder h1 { font-size: clamp(2.7rem, 13vw, 4.1rem); }
   .content-wrap { padding-inline: var(--ku-space-s); }

@@ -136,7 +136,8 @@ function initFadeIn() {
    «Завершить» (SCORM.complete()). Прогресс открытия глав хранится отдельно.
    ════════════════════════════════════════════════════════════════════════ */
 const PROGRESS_KEY = 'standards_consequences_course_progress';
-const PROGRESS_VERSION = 7;
+// Новая версия начинает маршрут заново: при первом открытии доступно только «Введение».
+const PROGRESS_VERSION = 8;
 const hubDone = [false, false, false];   // флаги пройденных подразделов (если есть)
 
 function collectState() {

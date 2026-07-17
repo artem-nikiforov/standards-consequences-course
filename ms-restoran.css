@@ -107,10 +107,10 @@ main { padding-top: 4.25rem; }
 .lead-statement,
 .rule-quote,
 .section-heading,
-.after-feedback-note { max-width: 44rem; margin-left: auto; margin-right: auto; }
+.after-feedback-note { max-width: 44rem; margin-left: 0; margin-right: 0; }
 .challenge-card { background: var(--ku-brand-soft); border: 1px solid var(--ku-border); border-radius: var(--ku-radius-l); box-shadow: var(--ku-shadow-s); }
 .challenge-card strong { color: var(--ku-brand-strong); }
-.section-heading { margin: var(--ku-space-xl) auto var(--ku-space-m); }
+.section-heading { margin: var(--ku-space-xl) 0 var(--ku-space-m); }
 .section-heading h2, .section-heading h3 { font-family: var(--ku-font-display); font-weight: 800; letter-spacing: -0.035em; color: var(--ku-text); }
 .section-heading > p:last-child, .body-text p { color: var(--ku-text-soft); }
 .chapter-grid { gap: var(--ku-gap-m); margin-top: var(--ku-space-l); }
@@ -196,7 +196,7 @@ main { padding-top: 4.25rem; }
 .fpr-card--result > span { background: var(--ku-success); color: var(--ku-brand-on); }
 
 /* Связка между вопросом-вызовом и маршрутом курса. */
-.challenge-bridge { max-width: 44rem; margin: 1.1rem auto 0; text-align: center; color: var(--ku-text-soft); font-size: 1.05rem; line-height: 1.55; }
+.challenge-bridge { max-width: 44rem; margin: 1.1rem 0 0; text-align: left; color: var(--ku-text-soft); font-size: 1.05rem; line-height: 1.55; }
 .voice-card { background: var(--ku-brand-soft); color: var(--ku-text); border: 1px solid color-mix(in srgb, var(--ku-brand) 26%, var(--ku-border)); border-radius: var(--ku-radius-l); box-shadow: var(--ku-shadow-s); }
 .voice-card__icon { background: var(--ku-brand); color: var(--ku-brand-on); }
 .voice-card__copy p:last-child { color: var(--ku-text-soft); }

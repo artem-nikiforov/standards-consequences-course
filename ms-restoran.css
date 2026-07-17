@@ -74,14 +74,14 @@ main { padding-top: 4.25rem; }
 .photo-note-icon { color: var(--ku-brand); }
 .hero-bk-logo { background: var(--ku-brand-strong); }
 
-/* Обложка из готового изображения: на широком экране сохраняет всю композицию,
-   на телефоне оставляет в кадре заголовок и кнопку старта. */
-.hero-placeholder--cover { display: grid; min-height: 0; background: var(--ku-bg); }
-.hero-placeholder--cover::before,
-.hero-placeholder--cover::after { content: none; }
-.hero-cover__image { display: block; width: 100%; max-height: calc(100svh - 4.25rem); object-fit: contain; object-position: center; background: var(--ku-bg); }
-.hero-cover__cta { position: absolute; inset: 0; z-index: 1; border: 0; background: transparent; cursor: pointer; }
-.hero-cover__cta:focus-visible { outline: 0.25rem solid var(--ku-brand); outline-offset: -0.5rem; }
+/* Иллюстрация фона оставляет слева свободную зону для настоящего заголовка и CTA. */
+.hero-placeholder--generated {
+  background: url("./assets/hero-control-system.png") center / cover no-repeat, var(--ku-bg);
+}
+.hero-placeholder--generated::before,
+.hero-placeholder--generated::after { content: none; }
+.hero-placeholder--generated .hero-placeholder__grid { display: none; }
+.hero-placeholder--generated .hero-placeholder__content { position: relative; z-index: 1; }
 
 /* Оглавление */
 .content-wrap { max-width: var(--content-max); padding: var(--ku-space-xl) var(--ku-space-s) 5rem; }
@@ -216,8 +216,7 @@ a.btn-download:hover { background: var(--ku-brand-soft); border-color: var(--ku-
   .nav-brand { display: none; }
   .nav-inner { padding-inline: var(--ku-space-s); }
   .hero-placeholder { min-height: calc(88vh - 4rem); }
-  .hero-placeholder--cover { min-height: calc(88svh - 4rem); }
-  .hero-cover__image { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: left top; }
+  .hero-placeholder--generated { background-position: 20% center; }
   .hero-placeholder__content { width: calc(100% - 2rem); padding: 5.5rem 0 7rem; }
   .hero-placeholder h1 { font-size: clamp(2.7rem, 13vw, 4.1rem); }
   .content-wrap { padding-inline: var(--ku-space-s); }

@@ -176,7 +176,7 @@ main { padding-top: 4.25rem; }
 .pyramid-level.level-1 { background: var(--ku-brand-soft); color: var(--ku-text); border: 1px solid var(--ku-border); }
 .pyramid-detail { background: color-mix(in srgb, var(--ku-brand-soft) 74%, var(--ku-card)); color: var(--ku-text); border: 1px solid color-mix(in srgb, var(--ku-brand) 42%, var(--ku-border)); border-radius: var(--ku-radius-m); font-weight: 650; box-shadow: var(--ku-shadow-xs); }
 .chain-infographic { background: linear-gradient(145deg, var(--ku-card), color-mix(in srgb, var(--ku-brand-soft) 66%, var(--ku-card))); border: 1px solid color-mix(in srgb, var(--ku-brand) 46%, var(--ku-border)); border-top: 0.35rem solid var(--ku-brand); box-shadow: var(--ku-shadow-m); }
-.chain-infographic--risk, .chain-infographic--allergen { border-top-color: var(--ku-brand); }
+.chain-infographic--risk, .chain-infographic--allergen, .chain-infographic--employee { border-top-color: var(--ku-brand); }
 .chain-infographic--safety, .chain-infographic--quality { border-top-color: var(--ku-contrast); }
 .chain-infographic__head > strong, .chain-infographic__head h4 { color: var(--ku-text); font-family: var(--ku-font-display); font-weight: 750; }
 .chain-infographic__head span, .chain-detail, .chain-step small { color: var(--ku-text-soft); }

@@ -58,7 +58,7 @@ const chapterDone = {
 
 const NEXT_FEEDBACK_IDS = {
   intro: 'intro-feedback',
-  consequences: 'match-feedback',
+  consequences: 'match-feedback-0',
   control: 'shift-feedback',
   algorithm: 'sort-feedback',
   system: 'control-feedback',
@@ -228,7 +228,10 @@ function completeChapter(chapterId) {
 
 function goNext(fromChapter, nextChapter) {
   if (!chapterDone[fromChapter]) {
-    const fb = document.getElementById(NEXT_FEEDBACK_IDS[fromChapter]);
+    const feedbackId = fromChapter === 'consequences'
+      ? 'match-feedback-' + Math.max(0, matchAnswered.findIndex(answered => !answered))
+      : NEXT_FEEDBACK_IDS[fromChapter];
+    const fb = document.getElementById(feedbackId);
     if (fb) {
       fb.className = 'feedback-box show incorrect';
       fb.innerHTML = '<strong>Сначала ответь на вопрос.</strong> Можно выбрать любой вариант: после ответа появится объяснение, и ты сможешь продолжить.';
@@ -488,10 +491,6 @@ function pickMatch(btn, qIdx, answer) {
     if (questionFb) {
       questionFb.className = 'feedback-box match-question-feedback show correct';
       questionFb.innerHTML = '<strong>Верно.</strong> Этот вариант соответствует логике цепочки последствий.';
-    }
-    if (matchSolved.every(Boolean)) {
-      const fb = document.getElementById('match-feedback');
-      if (fb) { fb.className = 'feedback-box show correct'; fb.innerHTML = '<strong>Верно.</strong> Оба ответа собраны — можно идти дальше.'; }
     }
   } else {
     btn.classList.add('wrong-pick');

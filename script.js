@@ -233,7 +233,9 @@ function goNext(fromChapter, nextChapter) {
       : NEXT_FEEDBACK_IDS[fromChapter];
     const fb = document.getElementById(feedbackId);
     if (fb) {
-      fb.className = 'feedback-box show incorrect';
+      fb.className = fromChapter === 'consequences'
+        ? 'feedback-box match-question-feedback show incorrect'
+        : 'feedback-box show incorrect';
       fb.innerHTML = '<strong>Сначала ответь на вопрос.</strong> Можно выбрать любой вариант: после ответа появится объяснение, и ты сможешь продолжить.';
       fb.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -478,6 +480,13 @@ const MATCH_EXPLANATIONS = [
   },
 ];
 
+function showMatchFeedback(feedback, type, message) {
+  if (!feedback) return;
+  feedback.hidden = false;
+  feedback.className = 'feedback-box match-question-feedback show ' + type;
+  feedback.innerHTML = message;
+}
+
 function pickMatch(btn, qIdx, answer) {
   if (matchSolved[qIdx]) return;
   matchAnswered[qIdx] = true;
@@ -488,17 +497,11 @@ function pickMatch(btn, qIdx, answer) {
     matchSolved[qIdx] = true;
     q.classList.add('solved');
     q.querySelectorAll('.match-btn').forEach(b => b.disabled = true);
-    if (questionFb) {
-      questionFb.className = 'feedback-box match-question-feedback show correct';
-      questionFb.innerHTML = '<strong>Верно.</strong> Этот вариант соответствует логике цепочки последствий.';
-    }
+    showMatchFeedback(questionFb, 'correct', '<strong>Верно.</strong> ' + MATCH_EXPLANATIONS[qIdx][answer]);
   } else {
     btn.classList.add('wrong-pick');
     setTimeout(() => btn.classList.remove('wrong-pick'), 600);
-    if (questionFb) {
-      questionFb.className = 'feedback-box match-question-feedback show incorrect';
-      questionFb.innerHTML = '<strong>Пока не так.</strong> ' + MATCH_EXPLANATIONS[qIdx][answer] + ' Можно попробовать ещё раз.';
-    }
+    showMatchFeedback(questionFb, 'incorrect', '<strong>Пока не так.</strong> ' + MATCH_EXPLANATIONS[qIdx][answer] + ' Можно попробовать ещё раз.');
   }
   if (matchAnswered.every(Boolean)) completeChapter('consequences');
 }

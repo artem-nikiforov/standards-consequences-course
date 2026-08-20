@@ -76,7 +76,7 @@ main { padding-top: 4.25rem; }
 
 /* Заставка: текст остаётся в свободной левой части, домино — справа. */
 .hero-placeholder--cover {
-  background: url("./assets/hero-domino.jpg") center / cover no-repeat;
+  background: var(--ku-bg) url("./assets/hero-domino.jpg") center / contain no-repeat;
 }
 .hero-placeholder--cover::before { content: none; }
 .hero-placeholder--cover::after {
@@ -246,7 +246,7 @@ a.btn-download:hover { background: var(--ku-brand-soft); border-color: var(--ku-
   .nav-brand { display: none; }
   .nav-inner { padding-inline: var(--ku-space-s); }
   .hero-placeholder { min-height: calc(88vh - 4rem); }
-  .hero-placeholder--cover { background-position: 59% center; }
+  .hero-placeholder--cover { background-position: center; }
   .hero-placeholder--cover::after { background: rgba(250, 248, 253, 0.6); }
   .hero-placeholder--cover .hero-placeholder__content {
     width: calc(100% - 2rem);

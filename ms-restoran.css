@@ -78,7 +78,9 @@ body.is-home main { padding-top: 0; }
 
 /* Заставка: текст остаётся в свободной левой части, домино — справа. */
 .hero-placeholder--cover {
-  background: var(--ku-bg) url("./assets/hero-domino.jpg") center / contain no-repeat;
+  min-height: 0;
+  aspect-ratio: 1672 / 941;
+  background: var(--ku-bg) url("./assets/hero-domino.jpg") center / 100% auto no-repeat;
 }
 .hero-placeholder--cover::before { content: none; }
 .hero-placeholder--cover::after {

@@ -617,6 +617,13 @@ function completeCourse() {
     button.disabled = true;
     button.setAttribute('aria-disabled', 'true');
   }
+
+  setTimeout(() => {
+    try {
+      window.open('', '_self');
+      window.close();
+    } catch (e) {}
+  }, 350);
 }
 
 

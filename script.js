@@ -80,6 +80,8 @@ function navigateTo(pageId) {
   if (!target) return;
   target.classList.add('active');
   currentPage = pageId;
+  document.body.classList.toggle('is-home', pageId === 'home');
+  document.getElementById('top-nav')?.classList.toggle('home-nav-hidden', pageId === 'home');
   window.scrollTo({ top: 0, behavior: 'instant' });
 
   // 2) шапка + прогресс-бар

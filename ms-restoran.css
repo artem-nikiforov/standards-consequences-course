@@ -24,6 +24,8 @@ h1, h2, h3, h4, h5 { font-family: var(--ku-font-display); font-weight: 750; }
 button, textarea { font-family: var(--ku-font-body); }
 button:focus-visible, a:focus-visible, textarea:focus-visible { outline-color: var(--ku-brand); }
 main { padding-top: 4.25rem; }
+body.is-home main { padding-top: 0; }
+#top-nav.home-nav-hidden { display: none; }
 
 /* Верхняя навигация */
 #top-nav {

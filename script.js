@@ -161,7 +161,40 @@ function saveProgress() {
   }
 }
 
+function resetProgressForNewAttempt() {
+  unlockedChapters = 1;
+  Object.keys(chapterDone).forEach(id => { chapterDone[id] = false; });
+  hubDone.fill(false);
+
+  try {
+    localStorage.removeItem(PROGRESS_KEY);
+    localStorage.removeItem(PROGRESS_KEY + '_completed');
+  } catch (e) {}
+
+  if (window.SCORM && typeof SCORM.set === 'function') {
+    SCORM.set('cmi.suspend_data', JSON.stringify(collectState()));
+    SCORM.set('cmi.core.lesson_status', 'incomplete');
+    SCORM.set('cmi.core.score.raw', '0');
+    SCORM.set('cmi.core.exit', 'suspend');
+    SCORM.commit();
+  }
+}
+
 function loadProgress() {
+  let completedAttempt = false;
+  try { completedAttempt = localStorage.getItem(PROGRESS_KEY + '_completed') === 'passed'; } catch (e) {}
+  if (window.SCORM && typeof SCORM.get === 'function') {
+    try {
+      const status = SCORM.get('cmi.core.lesson_status');
+      completedAttempt = completedAttempt || status === 'passed' || status === 'completed';
+    } catch (e) {}
+  }
+
+  if (completedAttempt) {
+    resetProgressForNewAttempt();
+    applyHomeLocks();
+    return;
+  }
   let json = '';
   if (window.SCORM && typeof SCORM.get === 'function') {
     try { json = SCORM.get('cmi.suspend_data') || ''; } catch (e) {}
